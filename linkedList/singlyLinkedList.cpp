@@ -13,9 +13,9 @@ public:
         next = NULL;
     }
     // Parameterized Constructor
-    Node(int data)
+    Node(int value)
     {
-        this->data = data;
+        this->data = value;
         this->next = NULL;
     }
 };
@@ -32,17 +32,17 @@ public:
     }
 
     // Function to insert a new node at the first of the linked list
-    void insertAtBeginning(int data)
+    void insertAtBeginning(int value)
     {
-        Node *newNode = new Node(data);
+        Node *newNode = new Node(value);
         newNode->next = head;
         this->head = newNode;
     }
 
     // Function to insert a new node at the end of the linked list
-    void insertAtEnd(int data)
+    void insertAtEnd(int value)
     {
-        Node *newNode = new Node(data);
+        Node *newNode = new Node(value);
         Node *temp = head;
         while (temp->next != NULL)
         {
@@ -52,23 +52,23 @@ public:
     }
 
     // Fuction to insert a new node at a specific position in the linked list
-    void insertAtSpecific(int pos, int data)
+    void insertAtSpecific(int pos, int value)
     {
-        if (pos < 0)
+        if (pos < 1)
         {
             cout << "Invalid position" << endl;
             return;
         }
-        if (pos == 0)
+        if (pos == 1)
         {
-            insertAtBeginning(data);
+            insertAtBeginning(value);
             return;
         }
         else
         {
-            Node *newNode = new Node(data);
+            Node *newNode = new Node(value);
             Node *temp = head;
-            for (int i = 0; i < pos - 1 && temp != NULL; i++)
+            for (int i = 1; i < pos - 1 && temp != NULL; i++)
             {
                 temp = temp->next;
             }
@@ -109,13 +109,13 @@ public:
     {
         if (head == NULL)
             return;
-        if (pos == 0)
+        if (pos == 1)
         {
             deleteAtBeginning();
             return;
         }
         Node *temp = head;
-        for (int i = 0; i < pos - 1 && temp != NULL; i++)
+        for (int i = 1; i < pos - 1 && temp != NULL; i++)
         {
             temp = temp->next;
         }
@@ -180,13 +180,17 @@ int main()
     list.insertAtEnd(30);
     list.insertAtSpecific(1, 25);
     list.insertAtSpecific(4, 35);
-    cout << "Length of the list: " << list.size() << endl;
+    list.printList();
+    list.deleteAtEnd();
+    list.printList();
+
+    // cout << "Length of the list: " << list.size() << endl;
     // cout << "Is 30 present in the list? " << list.search(30) << endl;
     // cout << "Is 22 present in the list? " << list.search(22) << endl;
-    list.printList();
+    // list.printList();
     // list.deleteAtBeginning();
     // list.deleteAtEnd();
-    list.deteteAtSpecific(4);
-    list.printList();
+    // list.deteteAtSpecific(4);
+    // list.printList();
     return 0;
 }
