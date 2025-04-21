@@ -103,9 +103,8 @@ public:
     void deleteAtBeginning()
     {
         if (head == nullptr)
-        {
             return;
-        }
+
         Node *deleteNode = head;
         head = head->next;
         if (head != nullptr)
@@ -114,6 +113,22 @@ public:
         }
         delete deleteNode;
     }
+
+    void deleteAtEnd()
+    {
+        if (head == nullptr)
+            return;
+
+        Node *temp = head;
+        while (temp->next->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        Node *deleteNode = temp->next;
+        temp->next = nullptr;
+        delete deleteNode;
+    }
+
     void printList()
     {
         Node *temp = head;
@@ -148,6 +163,8 @@ int main()
     dll.printList();
 
     dll.deleteAtBeginning();
+    dll.printList();
+    dll.deleteAtEnd();
     dll.printList();
 
     // cout << "Search for 25: " << dll.search(25) << endl;
