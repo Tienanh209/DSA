@@ -10,7 +10,7 @@ Elements are linked using pointers
 
 ## Doubly Linked List
 
-[address | data | address] <-> [address | data | address] <-> NULL
+NULL <- [address | data | address] <-> [address | data | address] -> NULL
 
 Advantages
 
