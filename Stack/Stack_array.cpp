@@ -59,11 +59,12 @@ public:
     {
         if (top < 0)
             return;
-        cout << "\nStack: ";
+        cout << "Stack: ";
         for (int i = top; i >= 0; i--)
         {
             cout << a[i] << " ";
         }
+        cout << endl;
     }
 };
 
@@ -74,4 +75,7 @@ int main()
     s.push(5);
     s.push(3);
     s.display();
+    cout << "Deleted: " << s.pop() << endl;
+    s.display();
+    cout << "The first element of stack: " << s.peek() << endl;
 };
